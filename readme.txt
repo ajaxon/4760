@@ -19,7 +19,7 @@ To run grep.py on nike
 	-make sure you are in the same directory as the grep.py file
 	-type "python grep.py [-flags] searchText [filename]"
 	-here [-flags] can be -x, -v, or left blank
-		-using -v, the grep program will search and return files without the associated searchText string 
+		-using -v, the grep program will search and return all lines without the associated searchText string 
 			i.e. if searchText = "dog", all files without dog will be returned
 		-using -x, the grep program will search and return files including the entire associated searchText string 
 			i.e. if searchText =  "the dog is happy", only files with the whole line "the dog is happy" will be returned

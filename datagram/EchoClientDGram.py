@@ -9,15 +9,15 @@ def main(argv):
     # Message to send to the server from argv
     message = str(argv[0])
 
-    sock = socket(AF_INET, SOCK_STREAM)
-    sock.connect((host, port))
+    client_socket = socket(AF_INET, SOCK_DGRAM)
+
     # Send message to server
-    sock.send(message)
+    client_socket.sendto(message, (host, port))
     # Receive message from server and print it to console
-    received = sock.recv(1024)
-    print str(received)
+    return_message, server = client_socket.recvfrom(1024)
+    print return_message
     # Close the socket / TCP connection
-    sock.close()
+    client_socket.close()
 
 
 if __name__ == '__main__':

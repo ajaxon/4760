@@ -2,25 +2,28 @@ from socket import *
 
 
 def main():
+    # Host machine address server is running on
     host = '127.0.0.1'
-    port = 4200
+    # Port used
+    port = 4760
 
-    sock = socket()
-    sock.bind((host, port))
+    server_socket = socket(AF_INET, SOCK_STREAM)
+    server_socket.bind((host, port))
 
-    sock.listen(2)
+    server_socket.listen(2)
     print "Server running"
-    c, addr = sock.accept()
-    print "Connection " + str(addr)
 
     while True:
+
+        c, addr = server_socket.accept()
+        print "Connection " + str(addr)
         data = c.recv(1024)
         if data:
             print str(data)
             c.send("You said: " + str(data))
         else:
             break
-    c.close()
+        c.close()
 
 
 if __name__ == '__main__':

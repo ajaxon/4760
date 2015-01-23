@@ -13,6 +13,7 @@ def main():
     while True:
         data, client = server_socket.recvfrom(1024)
         server_socket.sendto("You said: " + str(data), client)
+    server_socket.close()
 
 
 if __name__ == '__main__':

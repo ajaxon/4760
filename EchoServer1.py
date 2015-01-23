@@ -21,8 +21,7 @@ def main():
         if data:
             print str(data)
             c.send("You said: " + str(data))
-        else:
-            break
+
         c.close()
 
 

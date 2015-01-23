@@ -10,6 +10,7 @@ def main(argv):
     message = str(argv[0])
 
     sock = socket(AF_INET, SOCK_STREAM)
+    # Connect to server
     sock.connect((host, port))
     # Send message to server
     sock.send(message)
